@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -72,7 +73,7 @@ fun GesturesExamplesScreen(modifier: Modifier = Modifier) {
 fun ExamplesList(onExampleChange: (screen: Screens) -> Unit, modifier: Modifier = Modifier) {
     LazyColumn(modifier = Modifier) {
         itemsIndexed(items = Screens.entries.filter { it != Screens.ExamplesListScreen }) { i, item ->
-            if (i != 0) Divider()
+            if (i != 0) HorizontalDivider()
             Text(
                 text = item.title,
                 modifier = Modifier
