@@ -62,6 +62,7 @@ fun GesturesExamplesScreen(modifier: Modifier = Modifier) {
             Screens.DraggableBoxScreen -> DraggableBoxLowLevel(modifier = Modifier.fillMaxSize())
             Screens.SwitchScreen -> SwitchScreen(modifier = Modifier.fillMaxSize())
             Screens.PinchToZoom -> PinchToZoomScreen(modifier = Modifier.fillMaxSize())
+            Screens.PinchToZoomAndRotate -> PinchToZoomAndRotateScreen(modifier = Modifier.fillMaxSize())
         }
     }
 
@@ -88,6 +89,7 @@ enum class Screens(val title: String) {
     ExamplesListScreen("List of examples"),
     DraggableTextScreen("Draggable text with horizontal orientation"),
     DraggableBoxScreen("Draggable box low level"),
-    PinchToZoom("Pinch to zoom image"),
+    PinchToZoom("Pinch to zoom image (gesture recognizer)"),
+    PinchToZoomAndRotate("Pinch to zoom and rotate image (gesture modifier)"),
     SwitchScreen("Switch control with anchored draggable")
 }
