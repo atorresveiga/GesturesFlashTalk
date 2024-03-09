@@ -19,9 +19,13 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun PinchToZoomAndRotateScreen(modifier: Modifier = Modifier) {
+    // In this part of the code we are holding the current scale rotation and offset values
+    // We also should pass logical initial values for these
     var offset by remember { mutableStateOf(Offset.Zero) }
     var scale by remember { mutableStateOf(1f) }
     var rotation by remember { mutableStateOf(0f) }
+
+    // From our gesture recognizer, we update these values whenever the gesture receives a new change.
     val transformableState =
         rememberTransformableState { zoomChange, offsetChange, rotationChange ->
             scale *= zoomChange
@@ -29,6 +33,7 @@ internal fun PinchToZoomAndRotateScreen(modifier: Modifier = Modifier) {
             offset += offsetChange
         }
     Box(
+        // Here we are recognizing the gestures
         modifier = modifier.transformable(state = transformableState)
     ) {
         Image(
@@ -36,6 +41,7 @@ internal fun PinchToZoomAndRotateScreen(modifier: Modifier = Modifier) {
             contentDescription = "Eagle",
             modifier =
             Modifier
+                // And finally, we apply the transformation values to our composable.
                 .graphicsLayer {
                     translationX = offset.x
                     translationY = offset.y
